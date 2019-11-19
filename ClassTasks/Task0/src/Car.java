@@ -6,11 +6,11 @@ public class Car {
     protected double carFuelType;               // тип топлива
     protected double carFuelConsumption;        // расход топлива
 
-    public Car (String carStr) {
-        this.carStr = carStr;
-        carCode = Integer.valueOf(carStr.substring(1,carStr.indexOf("_")));
-        carNumber = carStr.substring(carStr.indexOf("_")+1,carStr.indexOf("-"));
 
+    public Car (TempObject tempObject) {
+        carCode = tempObject.carCode; // Integer.valueOf(carStr.substring(1,carStr.indexOf("_")));
+        carNumber = tempObject.carNumber; // carStr.substring(carStr.indexOf("_")+1,carStr.indexOf("-"));
+        carDistance = tempObject.carDistance;
     }
 
     public void printCar () {
@@ -41,6 +41,10 @@ public class Car {
         System.out.println("Тип авто: " + carType);
         System.out.println("Номер: " + carNumber);
         System.out.println("Пробег: " + carDistance);
+    }
+
+    public void addDistance(double newDistance){
+        carDistance += newDistance;
     }
 
 }

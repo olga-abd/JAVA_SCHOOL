@@ -1,10 +1,9 @@
-public class TruckCar extends Car {
+public class TruckCar extends ExtendedCar {
     protected double cargoVolume;   // объем перевезенного груза
 
-    public TruckCar (String carStr) {
-        super(carStr);
-        carDistance = Double.valueOf(carStr.substring(carStr.indexOf("-")+1,carStr.indexOf("-",carStr.indexOf("-")+1)));
-        cargoVolume = Double.valueOf(carStr.substring(carStr.indexOf("-",carStr.indexOf("-")+1) + 1));
+    public TruckCar (TempObject tempObject) {
+        super(tempObject);
+        cargoVolume = dopParam; // Double.valueOf(carStr.substring(carStr.indexOf("-",carStr.indexOf("-")+1) + 1));
         carFuelType = 48.9;
         carFuelConsumption = 0.12;
     }
@@ -12,5 +11,10 @@ public class TruckCar extends Car {
     public void printCar () {
         super.printCar();
         System.out.println("Объем перевезенного груза: " + cargoVolume);
+    }
+
+    public void addDopParam (double newValue){
+        super.addDopParam(newValue);
+        cargoVolume = dopParam;
     }
 }

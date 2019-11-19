@@ -1,14 +1,15 @@
 public class Calc {
     protected String expression;
     protected double result;
-    protected StringBuffer memory = new StringBuffer();
+    protected StringBuffer memory;// = new StringBuffer();
+    // память реализована как StringBuffer с разделением выражений через ;
+
 
     /*public Calc (String expression){
         this.expression = expression;
     }*/
 
     public void calculate (String expression){
-
         this.expression = expression;
 
         String[] str_arr = expression.split(" ");
@@ -53,7 +54,23 @@ public class Calc {
         }
         result = tmp;
 
-        memory.append(expression + " = " + result + ";");
+        saveToMemory();
+        //memory.append(expression + " = " + result + ";");
+    }
+
+
+    private void saveToMemory(){
+        // если записано 10 выражений, то удаляем первое до первой ;
+        if (memory != null && memory.length() - String.valueOf(memory).replaceAll(";","").length() == 10){
+            memory.delete(0,memory.indexOf(";") + 1);
+        }
+
+        if (memory == null){ // если объект пустой, то создаем новый
+            memory = new StringBuffer(expression + " = " + result + ";");
+        }
+        else {
+            memory.append(expression + " = " + result + ";");
+        }
     }
 
     public void getPrevious () {
@@ -83,7 +100,7 @@ public class Calc {
     }
 
     public void printResult(){
-        if (expression == null){
+        if (memory == null){
             System.out.println("Выражений не найдено");
         }
         else {

@@ -1,16 +1,20 @@
-public class Crane extends Car {
+public class Crane extends ExtendedCar {
     protected double cargoWeight;   // вес поднятых грузов
 
-    public Crane (String carStr){
-        super(carStr);
-        carDistance = Double.valueOf(carStr.substring(carStr.indexOf("-")+1,carStr.indexOf("-",carStr.indexOf("-")+1)));
-        cargoWeight = Double.valueOf(carStr.substring(carStr.indexOf("-",carStr.indexOf("-")+1) + 1));
+    public Crane (TempObject tempObject){
+        super(tempObject);
+        cargoWeight = dopParam; // Double.valueOf(carStr.substring(carStr.indexOf("-",carStr.indexOf("-")+1) + 1));
         carFuelType = 48.9;
-        carFuelConsumption = 20;
+        carFuelConsumption = 0.20;
     }
 
     public void printCar () {
         super.printCar();
         System.out.println("Вес поднятых грузов: " + cargoWeight);
+    }
+
+    public void addDopParam (double newValue){
+        super.addDopParam(newValue);
+        cargoWeight = dopParam;
     }
 }

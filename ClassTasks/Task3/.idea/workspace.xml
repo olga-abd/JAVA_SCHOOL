@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6cd83a8-f20a-46b0-a65a-1e1af06f9f50" name="Default Changelist" comment="" />
+    <list default="true" id="e94598b6-7ca8-4378-af32-2a45d5402d8b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,10 +15,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1Th0UiiWQLfM2f0oKxO8Q8F9xwF" />
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
+  <component name="ProjectId" id="1TqF44f9vdWFBp0amXEppWNd3Ty" />
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -32,16 +29,16 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Task2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Task2" />
-      <module name="Task2" />
+    <configuration name="Task3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Task3" />
+      <module name="Task3" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Task2" />
+        <item itemvalue="Application.Task3" />
       </list>
     </recent_temporary>
   </component>
@@ -50,11 +47,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d6cd83a8-f20a-46b0-a65a-1e1af06f9f50" name="Default Changelist" comment="" />
-      <created>1573897038065</created>
+      <changelist id="e94598b6-7ca8-4378-af32-2a45d5402d8b" name="Default Changelist" comment="" />
+      <created>1574179523531</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1573897038065</updated>
+      <updated>1574179523531</updated>
     </task>
     <servers />
   </component>

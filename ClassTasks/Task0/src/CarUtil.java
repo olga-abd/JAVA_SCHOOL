@@ -1,6 +1,12 @@
 public class CarUtil {
-    public static double calcGsv (Car car) {
-        return car.carDistance * car.carFuelType * car.carFuelConsumption;
+
+    // Расчет ГСМ
+    public static double calcGsm2 (Car[] cars){
+        double gsm = 0;
+        for (Car car : cars){
+            gsm += car.carDistance * car.carFuelType * car.carFuelConsumption;
+        }
+        return gsm;
     }
 
     public static String minCost (double[] arr){
@@ -79,119 +85,64 @@ public class CarUtil {
         return str;
     }
 
-    public static PassangersCar[] sort (PassangersCar[] cars, int param) {
-        /* param = 1 - сортировка по пробегу
-           param = 2 - сортировка по доп параметру
-         */
+    public static void sortDistance (Car[] cars) {
+        System.out.println("Сортировка по дистанции:");
+        Car tmp;
 
-        if (param == 1) {
-            PassangersCar tmp;
-            for(int i = 0; i < cars.length; i++) {
-                for (int j = i + 1; j < cars.length; j++) {
-                    if (cars[i].carDistance > cars[j].carDistance) {
-                        tmp = cars[i];
-                        cars[i] = cars[j];
-                        cars[j] = tmp;
-                    }
+        for(int i = 0; i < cars.length; i++) {
+            for (int j = i + 1; j < cars.length; j++) {
+                if (cars[i].carDistance > cars[j].carDistance) {
+                    tmp = cars[i];
+                    cars[i] = cars[j];
+                    cars[j] = tmp;
                 }
             }
         }
-        return cars;
+
+        for (Car car : cars) {
+            car.printCar();
+        }
+
+        System.out.println("*****");
     }
 
-    public static TruckCar[] sort (TruckCar[] cars, int param) {
-        /* param = 1 - сортировка по пробегу
-           param = 2 - сортировка по доп параметру
-         */
-
-        TruckCar tmp;
-
-        if (param == 1) {
-            for(int i = 0; i < cars.length; i++) {
-                for (int j = i + 1; j < cars.length; j++) {
-                    if (cars[i].carDistance > cars[j].carDistance) {
-                        tmp = cars[i];
-                        cars[i] = cars[j];
-                        cars[j] = tmp;
-                    }
-                }
+    public static void sortDopParam (ExtendedCar[] cars){
+        System.out.println("Сортировка по доп параметру:");
+        if (cars[0].carCode == 100) {
+            for(Car car : cars) {
+                car.printCar();
             }
         }
         else {
-            for(int i = 0; i < cars.length; i++) {
+            ExtendedCar tmp;
+
+            for (int i = 0; i < cars.length; i++) {
                 for (int j = i + 1; j < cars.length; j++) {
-                    if (cars[i].cargoVolume > cars[j].cargoVolume) {
+                    if (cars[i].dopParam > cars[j].dopParam) {
                         tmp = cars[i];
                         cars[i] = cars[j];
                         cars[j] = tmp;
                     }
                 }
             }
+
+            for (ExtendedCar car : cars) {
+                car.printCar();
+            }
         }
-        return cars;
+
+        System.out.println("*****");
     }
 
-    public static Bus[] sort (Bus[] cars, int param) {
-        /* param = 1 - сортировка по пробегу
-           param = 2 - сортировка по доп параметру
-         */
+    // ищем машину в массиве. возвращаем индекс в массиве или -1
+    public static int searchCar(Car[] cars, TempObject tempObject){
+        for (int i = cars.length - 1; i >= 0; i--){
 
-        Bus tmp;
-
-        if (param == 1) {
-            for(int i = 0; i < cars.length; i++) {
-                for (int j = i + 1; j < cars.length; j++) {
-                    if (cars[i].carDistance > cars[j].carDistance) {
-                        tmp = cars[i];
-                        cars[i] = cars[j];
-                        cars[j] = tmp;
-                    }
-                }
+            if (cars[i] == null) break;
+            if (cars[i] != null && cars[i].carCode == (tempObject.carCode) && String.valueOf(cars[i].carNumber).equals(tempObject.carNumber)){
+                return i;
             }
         }
-        else {
-            for(int i = 0; i < cars.length; i++) {
-                for (int j = i + 1; j < cars.length; j++) {
-                    if (cars[i].passagersCount > cars[j].passagersCount) {
-                        tmp = cars[i];
-                        cars[i] = cars[j];
-                        cars[j] = tmp;
-                    }
-                }
-            }
-        }
-        return cars;
-    }
-
-    public static Crane[] sort (Crane[] cars, int param) {
-        /* param = 1 - сортировка по пробегу
-           param = 2 - сортировка по доп параметру
-         */
-
-        Crane tmp;
-
-        if (param == 1) {
-            for(int i = 0; i < cars.length; i++) {
-                for (int j = i + 1; j < cars.length; j++) {
-                    if (cars[i].carDistance > cars[j].carDistance) {
-                        tmp = cars[i];
-                        cars[i] = cars[j];
-                        cars[j] = tmp;
-                    }
-                }
-            }
-        }
-        else {
-            for(int i = 0; i < cars.length; i++) {
-                for (int j = i + 1; j < cars.length; j++) {
-                    if (cars[i].cargoWeight > cars[j].cargoWeight) {
-                        tmp = cars[i];
-                        cars[i] = cars[j];
-                        cars[j] = tmp;
-                    }
-                }
-            }
-        }
-        return cars;
+        return -1;
     }
 }
