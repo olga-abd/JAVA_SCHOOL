@@ -11,11 +11,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1U3Y5jYgImN7hlNq957ZqTlNG8S" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ClassTasks/Task2" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>

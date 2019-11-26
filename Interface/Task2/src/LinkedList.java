@@ -1,5 +1,5 @@
 
-public class LinkedList {
+public class LinkedList implements Lists{
     private int size; // размер
     Element head; // первый элемент, чтобы было от чего отталкиваться
 
@@ -75,7 +75,7 @@ public class LinkedList {
         size++;
     }
 
-    public void printList () {
+    public void print () {
         System.out.print("Связанный список: ");
         Element curElement = head;
         while (curElement.nextMember != null) {
