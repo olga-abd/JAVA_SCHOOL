@@ -23,8 +23,8 @@ public class Task3 {
 
 
     public static <T>Collection<T> removeDuplicates(Collection<T> collection){
-        Set <T> set = new HashSet<>(collection);
-        return new ArrayList<>(set);
+        //Set <T> set =
+        return new HashSet<>(collection);
     }
 
     public static Integer generateInt3() {
