@@ -1,11 +1,11 @@
 public class TruckCar extends ExtendedCar {
     protected double cargoVolume;   // объем перевезенного груза
 
-    public TruckCar (TempObject tempObject) {
+    public TruckCar (TempObject tempObject) throws CarException{
         super(tempObject);
         cargoVolume = dopParam; // Double.valueOf(carStr.substring(carStr.indexOf("-",carStr.indexOf("-")+1) + 1));
-        carFuelType = 48.9;
-        carFuelConsumption = 0.12;
+        //carFuelType = 48.9;
+        //carFuelConsumption = 0.12;
     }
 
     public void printCar () {

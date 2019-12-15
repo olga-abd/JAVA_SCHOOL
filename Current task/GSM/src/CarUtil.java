@@ -1,5 +1,8 @@
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
 
 public class CarUtil {
 
@@ -115,5 +118,33 @@ public class CarUtil {
         }
     }
 
+    public static double getFuelType (String carType) throws CarException{
+        return getFuelInfo(".\\carFuelTypeFile.txt",carType);
+    }
 
+    public static double getFuelComsuption (String carType) throws CarException{
+        return getFuelInfo(".\\carFuelConsumptionFile.txt", carType);
+    }
+
+    private static double getFuelInfo (String filePath, String carType) throws CarException {
+
+        Path path = Paths.get(filePath);
+        List<String> list = new ArrayList<>();
+
+        if(!Files.exists(path))  throw new CarException("ERR400");
+
+        try {
+            list = Files.readAllLines(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new CarException("ERR400");
+        }
+
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i).split(" ")[0].equals(carType)){
+                return Double.valueOf(list.get(i).split(" ")[1]);
+            }
+        }
+        throw new CarException("ERR300");
+    }
 }

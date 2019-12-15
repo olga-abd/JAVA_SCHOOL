@@ -1,8 +1,10 @@
 public class PassangersCar extends Car {
-    public PassangersCar (TempObject tempObject){
+    public PassangersCar (TempObject tempObject) throws CarException{
         super(tempObject);
-        carFuelType = 46.1;
-        carFuelConsumption = 0.125;
+        //carFuelType = CarUtil.getFuelType("C100");
+                //46.1;
+        //carFuelConsumption = CarUtil.getFuelComsuption("C100");
+                //0.125;
     }
 
     @Override

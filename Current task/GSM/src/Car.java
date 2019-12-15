@@ -7,10 +7,12 @@ public abstract class Car { // Класс Car сделала абстракты�
     protected double carFuelConsumption;        // расход топлива
 
 
-    public Car (TempObject tempObject) {
+    public Car (TempObject tempObject) throws CarException{
         carCode = tempObject.carCode;
         carNumber = tempObject.carNumber;
         carDistance = tempObject.carDistance;
+        carFuelType = CarUtil.getFuelType("C" + carCode);
+        carFuelConsumption = CarUtil.getFuelComsuption("C" + carCode);
     }
 
     public abstract void printCar() ; // абстрактный метод. В ExtendedCar и PassangersCar метод переопределен

@@ -1,7 +1,7 @@
 public class ExtendedCar extends Car {
     protected double dopParam;
 
-    public ExtendedCar(TempObject tempObject){
+    public ExtendedCar(TempObject tempObject) throws CarException{
         super(tempObject);
         dopParam = tempObject.dopParam;
     }
